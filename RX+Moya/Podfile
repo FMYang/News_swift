@@ -1,0 +1,17 @@
+project 'RX+Moya.xcodeproj'
+
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'RX+Moya' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for RX+Moya
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'Moya/RxSwift'
+  pod 'Moya'
+  pod 'SwiftyJSON'
+  pod 'SnapKit'
+end
