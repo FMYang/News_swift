@@ -10,7 +10,6 @@ import Foundation
 import Moya
 import SwiftyJSON
 
-
 /// 网路请求日志打印
 ///
 /// - Parameters:
@@ -35,6 +34,12 @@ func networkLog(url: String,
 }
 
 class Network {
+    
+    /// 网络请求
+    ///
+    /// - Parameters:
+    ///   - target: ApiTargetType
+    ///   - completion: 请求完成回调
     static func request(_ target: ApiTargetType, completion: @escaping Completion) {
         ApiProvider.request(MultiTarget(target),
                                    callbackQueue: nil,
@@ -49,18 +54,16 @@ class Network {
                                             // 200~298表示请求正确，否则请求失败，抛出异常，到catch中处理
                                             let response = try moyaResponse.filter(statusCodes: 200...298)
                                             data = try JSON(data: response.data)
+                                            completion(result)
                                         case .failure(let error):
                                             resultError = error
                                         }
-                                        completion(result)
 
                                     } catch {
                                         resultError = error
                                     }
 
                                     networkLog(url: target.baseURL.absoluteString + target.path, params: target.parameters, response: data, error: resultError, httpStatusCode: httpStatusCode)
-
-                                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
     }
 }

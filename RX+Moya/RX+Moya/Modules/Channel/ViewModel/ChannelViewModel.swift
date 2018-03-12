@@ -9,25 +9,33 @@
 import Foundation
 import Moya
 import SwiftyJSON
+import RxSwift
 
 class ChannelViewModel {
 
     var channels: [Channel] = []
 
-    func getChannel() {
-        Network.request(NewsAPi.channel) { [weak self] (result) in
-            switch result {
-            case .success(let response):
-                do {
-                    let json = try JSON(data: response.data)
-                    let array = json["data"]["data"]
-                    self?.channels = try JSONDecoder().decode([Channel].self, from: array.rawData())
-                } catch {
-                    print(error)
+    func getChannel() -> Observable<RequestStatus> {
+        return Observable.create({ (observe) -> Disposable in
+            Network.request(NewsAPi.channel) { [weak self] (result) in
+                var status: RequestStatus = .success
+                switch result {
+                case .success(let response):
+                    do {
+                        let json = try JSON(data: response.data)
+                        let array = json["data"]["data"]
+                        self?.channels = try JSONDecoder().decode([Channel].self, from: array.rawData())
+                        status = .success
+                    } catch {
+                        status = .serviceError
+                    }
+                case .failure(_):
+                    status = .serviceError
                 }
-            case .failure(let error):
-                print(error)
+                observe.onNext(status)
             }
-        }
+            return Disposables.create()
+        })
+        
     }
 }

@@ -122,13 +122,8 @@ let listJson = """
 }
 """
 
-struct News {
-    var title: String = ""
-    var content: String = ""
-    
-    init(json: JSON) {
-        title = json["title"].stringValue
-        content = json["content"].stringValue
-    }
+struct News: Codable {
+    var title: String
+    var source: String
 }
 

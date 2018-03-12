@@ -19,7 +19,7 @@ let requestClosure = { (endpoint: Endpoint<MultiTarget>, done: @escaping MoyaPro
     }
 }
 
-let ApiProvider = MoyaProvider<MultiTarget>(endpointClosure: MoyaProvider.defaultEndpointMapping, requestClosure: requestClosure)
+let ApiProvider = MoyaProvider<MultiTarget>(endpointClosure: MoyaProvider.defaultEndpointMapping, requestClosure: requestClosure, plugins: [ActivityPlugin()])
 
 public protocol ApiTargetType: TargetType {
     var parameters: [String: Any]? { get }

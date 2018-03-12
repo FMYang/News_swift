@@ -15,12 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.backgroundColor = .white
 
-        let vc = ViewController()
+        let vc = MainVC()
         let nav = UINavigationController(rootViewController: vc)
         self.window?.rootViewController = nav
 
