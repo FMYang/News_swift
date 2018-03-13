@@ -29,7 +29,7 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "头条"
+        self.navigationItem.title = "头条"
         
         self.setupUI()
         self.loadData()

@@ -34,6 +34,7 @@ class NewsListViewModel {
                                     self?.news.append(result)
                                 }
                             } catch {
+                                print(error)
                                 status = .serviceError
                             }
                         }

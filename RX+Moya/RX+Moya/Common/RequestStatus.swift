@@ -13,4 +13,5 @@ enum RequestStatus {
     case emptyData
     case serviceError
     case networkLost
+    case clientError
 }

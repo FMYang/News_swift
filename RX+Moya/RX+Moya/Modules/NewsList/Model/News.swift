@@ -125,5 +125,6 @@ let listJson = """
 struct News: Codable {
     var title: String
     var source: String
+    var item_id: Int
 }
 

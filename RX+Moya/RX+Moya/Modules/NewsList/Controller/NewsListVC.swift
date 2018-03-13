@@ -39,7 +39,7 @@ class NewsListVC: UIViewController {
         
         self.view.backgroundColor = .white
         
-        self.title = "列表"
+        self.navigationItem.title = "列表"
         
         self.setupUI()
         
@@ -71,6 +71,8 @@ class NewsListVC: UIViewController {
                     print("serviceError")
                 case .networkLost:
                     print("networkLost")
+                case .clientError:
+                    print("clientError")
                 }
             }).disposed(by: disposeBag)
     }
@@ -93,6 +95,9 @@ extension NewsListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let news = viewModel.news[indexPath.row]
+        let detailVC = DetailVC(itemId: news.item_id)
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
