@@ -25,6 +25,7 @@
 		88034EFD2056C1EA000B63DE /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88034EFC2056C1EA000B63DE /* MainVC.swift */; };
 		88034EFF2056C477000B63DE /* ActivityPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88034EFE2056C477000B63DE /* ActivityPlugin.swift */; };
 		88034F022056C8DC000B63DE /* RequestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88034F012056C8DC000B63DE /* RequestStatus.swift */; };
+		88034F0420580348000B63DE /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88034F0320580348000B63DE /* Macro.swift */; };
 		88968A68200256F900FFDB60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88968A67200256F900FFDB60 /* AppDelegate.swift */; };
 		E24FCB4B903153EC351307E8 /* Pods_RX_Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E53696FF163844B8DAAE2D /* Pods_RX_Moya.framework */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 		88034EFC2056C1EA000B63DE /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		88034EFE2056C477000B63DE /* ActivityPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPlugin.swift; sourceTree = "<group>"; };
 		88034F012056C8DC000B63DE /* RequestStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestStatus.swift; sourceTree = "<group>"; };
+		88034F0320580348000B63DE /* Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
 		88968A64200256F900FFDB60 /* RX+Moya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RX+Moya.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88968A67200256F900FFDB60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6B8C07ECB71E1897625981C /* Pods-RX+Moya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RX+Moya.release.xcconfig"; path = "Pods/Target Support Files/Pods-RX+Moya/Pods-RX+Moya.release.xcconfig"; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				88034F012056C8DC000B63DE /* RequestStatus.swift */,
+				88034F0320580348000B63DE /* Macro.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				3614809220561BE400B3C87C /* NewsListViewModel.swift in Sources */,
 				88034EFF2056C477000B63DE /* ActivityPlugin.swift in Sources */,
 				3614809420561BE400B3C87C /* News.swift in Sources */,
+				88034F0420580348000B63DE /* Macro.swift in Sources */,
 				88034F022056C8DC000B63DE /* RequestStatus.swift in Sources */,
 				36D985392057691F008BA188 /* DetailViewModel.swift in Sources */,
 				36D98530205680D5008BA188 /* Network.swift in Sources */,
@@ -556,6 +560,7 @@
 			baseConfigurationReference = 33B02556BDAED6F59ABD831E /* Pods-RX+Moya.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 464SP5UW8T;
 				ENABLE_TESTABILITY = YES;
@@ -564,6 +569,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "---.RX-Moya";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -574,6 +580,7 @@
 			baseConfigurationReference = E6B8C07ECB71E1897625981C /* Pods-RX+Moya.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 464SP5UW8T;
 				ENABLE_TESTABILITY = NO;
@@ -582,6 +589,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "---.RX-Moya";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

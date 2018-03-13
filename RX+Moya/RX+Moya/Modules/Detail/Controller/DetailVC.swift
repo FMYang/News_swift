@@ -19,6 +19,8 @@ class DetailVC: UIViewController {
 
     var newId: Int = 0
 
+    var htmlTitle: String = ""
+    
     lazy var detailWebView: WKWebView = {
         // 解决wk字体太小问题，通过设置configuration参数，适应css字体大小
         let jsScript = "var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);"
@@ -35,9 +37,10 @@ class DetailVC: UIViewController {
     }()
 
     // MARK: - 生命周期
-    convenience init(itemId: Int) {
+    convenience init(itemId: Int, title: String) {
         self.init()
         newId = itemId
+        htmlTitle = title
     }
 
     override func viewDidLoad() {
@@ -82,22 +85,45 @@ class DetailVC: UIViewController {
     }
 
     func loadHtml(content: String) {
-        let html = "<html>" + content + "</html>"
-        self.replaceAllImgMark(html: html)
+        let title = "<h3 text-align:left;font-size:18;font-weight:bold;color:#333333;margin-bottom:5px>\(htmlTitle)</h3>"
+        var html = "<html>" + title + content + "</html>"
+        self.replaceAllImgTag(html: &html)
         detailWebView.loadHTMLString(html, baseURL: Bundle.main.bundleURL)
     }
 
-    func replaceAllImgMark(html: String) {
+    func replaceAllImgTag(html: inout String) {
         do {
+            let headerStartRange = Range(html.range(of: "<header>")!)
+            let headerEndRange = Range(html.range(of: "</header>")!)
+            html = html.replacingCharacters(in: headerStartRange.lowerBound..<headerEndRange.lowerBound, with: "")
+            
+            // 获取所有a标签
             let regularExpression = "<a\\b[^>]*\\bhref\\s*=\\s*(\"[^\"]*\"|'[^']*')[^>]*>((?:(?!</a).)*)</a\\s*>"
             let regular = try NSRegularExpression(pattern: regularExpression, options: [])
             let result: [NSTextCheckingResult] = regular.matches(in: html, options: [], range: NSRange(location: 0, length: html.count))
 
+            var aTags: [String] = []
             for x in result {
                 let startIndex = html.index(html.startIndex, offsetBy: x.range.location)
                 let endIndex = html.index(startIndex, offsetBy: x.range.length)
-                print(html[startIndex..<endIndex])
+                let aTag = html[startIndex..<endIndex]
+                aTags.append(String(aTag))
             }
+            
+            // 占位图替换为可显示的<img>标签
+            if let images = viewModel.detail?.image_detail {
+                for image in images {
+                    for tag in aTags {
+                        let src = image.uri.replacingOccurrences(of: "/", with: "%2F")
+
+                        if tag.contains(src) {
+                            let newTag = "<p style=\"text-align:center\"><img src=\(image.url) width = \(image.width) height = \(image.height)></p>"
+                            html = html.replacingOccurrences(of: tag, with: newTag)
+                        }
+                    }
+                }
+            }
+            
         } catch {
             print(error)
         }

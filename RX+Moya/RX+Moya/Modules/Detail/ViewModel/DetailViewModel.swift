@@ -25,6 +25,11 @@ class DetailViewModel {
                         let data = resultJson["data"]
                         let newsDetail = try JSONDecoder().decode(NewsDetail.self, from: data.rawData())
                         self?.detail = newsDetail
+                        if let images = self?.detail?.image_detail {
+                            for image in images {
+                                image.fitWidthAndHeight(width: image.width, height: image.height)
+                            }
+                        }
                         status = .success
                     } catch {
                         print(error)

@@ -88,6 +88,23 @@ import Foundation
 //}
 //"""
 
+let detailImageWidth = Double(screenWidth - 20)
+
 struct NewsDetail: Codable {
     var content: String
+    var image_detail: [NewsDetailImage]?
+}
+
+class NewsDetailImage: Codable {
+    var width: Double = 0.0
+    var height: Double = 0.0
+    var uri: String = ""
+    var url: String = ""
+    
+    // 根据设备计算图片显示的宽高
+    func fitWidthAndHeight(width originWidth: Double,
+                                    height originHeight: Double) {
+        width = originWidth > detailImageWidth ? detailImageWidth : originWidth
+        height = width * originHeight / originWidth
+    }
 }

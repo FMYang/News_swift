@@ -96,7 +96,7 @@ extension NewsListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let news = viewModel.news[indexPath.row]
-        let detailVC = DetailVC(itemId: news.item_id)
+        let detailVC = DetailVC(itemId: news.item_id, title: news.title)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
