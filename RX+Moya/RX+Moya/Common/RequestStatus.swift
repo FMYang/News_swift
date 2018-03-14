@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum RequestStatus {
+public enum RequestStatus {
     case success
     case emptyData
     case serviceError

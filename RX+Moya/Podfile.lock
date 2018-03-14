@@ -14,6 +14,9 @@ PODS:
   - RxSwift (4.1.0)
   - SnapKit (4.0.0)
   - SwiftyJSON (4.0.0)
+  - WCDB.swift (1.0.6):
+    - WCDB.swift/sqlcipher (= 1.0.6)
+  - WCDB.swift/sqlcipher (1.0.6)
 
 DEPENDENCIES:
   - Moya
@@ -22,6 +25,7 @@ DEPENDENCIES:
   - RxSwift
   - SnapKit
   - SwiftyJSON
+  - WCDB.swift
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
@@ -31,7 +35,8 @@ SPEC CHECKSUMS:
   RxSwift: 4219941c1244c88002901bd87a69d3aea9ae71f0
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  WCDB.swift: 5bb038bc5bb46067cccc7c48392e8f4c4a15def0
 
-PODFILE CHECKSUM: d029caee1663504837d9a413b9a0b9a4d635fe57
+PODFILE CHECKSUM: 44633568e13cad6d7a06a3c184850d1dd3877907
 
 COCOAPODS: 1.1.1

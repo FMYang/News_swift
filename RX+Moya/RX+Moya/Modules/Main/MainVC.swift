@@ -59,7 +59,6 @@ class MainVC: UIViewController {
                 }
             }).disposed(by: disposeBag)
     }
-    
 }
 
 extension MainVC: UITableViewDelegate, UITableViewDataSource {

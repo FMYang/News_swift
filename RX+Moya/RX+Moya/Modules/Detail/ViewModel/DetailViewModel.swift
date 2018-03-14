@@ -21,7 +21,7 @@ class DetailViewModel {
                 switch result {
                 case .success(let response):
                     do {
-                        let resultJson = try! JSON.init(data: response.data)
+                        let resultJson = try JSON.init(data: response.data)
                         let data = resultJson["data"]
                         let newsDetail = try JSONDecoder().decode(NewsDetail.self, from: data.rawData())
                         self?.detail = newsDetail

@@ -21,8 +21,8 @@ import SwiftyJSON
 func networkLog(url: String,
                 params: Any? = nil,
                 response: Any? = nil,
-                error: Error? = nil,
-                httpStatusCode: Int = 200) {
+                error: Any? = nil,
+                httpStatusCode: Int = 404) {
     var output: String = ""
     output += "======================== BEGIN REQUEST =========================\n\r"
     output += "请求URL: \n\(url)\n\r"

@@ -101,10 +101,10 @@ class NewsDetailImage: Codable {
     var uri: String = ""
     var url: String = ""
     
-    // 根据设备计算图片显示的宽高
+    // 根据设备重新设置图片宽高
     func fitWidthAndHeight(width originWidth: Double,
                                     height originHeight: Double) {
-        width = originWidth > detailImageWidth ? detailImageWidth : originWidth
+        width = detailImageWidth//originWidth > detailImageWidth ? detailImageWidth : originWidth
         height = width * originHeight / originWidth
     }
 }
