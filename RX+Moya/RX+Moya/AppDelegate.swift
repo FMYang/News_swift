@@ -6,9 +6,10 @@
 //  Copyright © 2018年 杨方明. All rights reserved.
 //
 
-//  目标：将网易新闻、今日头条、澎湃等主流app合并在一个app是不是很酷😁
+//  目标：将网易新闻、今日头条、澎湃等主流新闻app合并在一个app是不是很酷😁
 
 import UIKit
+import WCDBSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,9 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         DBManager.share.createAllTable()
         print(dbPath)
+        
+        Database.globalTrace(ofSQL: { (sql) in
+            print("SQL: \(sql)")
+        })
 
         self.window?.makeKeyAndVisible()
         return true
     }
 }
+
+
 

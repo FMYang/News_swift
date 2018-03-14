@@ -93,9 +93,8 @@ class DetailVC: UIViewController {
 
     func replaceAllImgTag(html: inout String) {
         do {
-            let headerStartRange = Range(html.range(of: "<header>")!)
-            let headerEndRange = Range(html.range(of: "</header>")!)
-            html = html.replacingCharacters(in: headerStartRange.lowerBound..<headerEndRange.lowerBound, with: "")
+            if let start = html.range(of: "<header>"), let end = html.range(of: "</header>") {                html = html.replacingCharacters(in: start.lowerBound..<end.lowerBound, with: "")
+            }
             
             // 获取所有a标签
             let regularExpression = "<a\\b[^>]*\\bhref\\s*=\\s*(\"[^\"]*\"|'[^']*')[^>]*>((?:(?!</a).)*)</a\\s*>"

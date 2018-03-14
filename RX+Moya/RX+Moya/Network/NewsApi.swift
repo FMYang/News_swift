@@ -43,7 +43,7 @@ extension NewsAPi: ApiTargetType {
         case .channel:
             return nil
         case .newsList(let channel, let count):
-            return ["category": channel, "count": count] //"device_id": 3755813419
+            return ["category": channel, "count": count, "device_id": 3755813419]
         case .newsDetail(_):
             return nil
         }

@@ -36,7 +36,9 @@ class ChannelViewModel {
 
                                 // 保存栏目数据
                                 if let objects = self?.channels {
-                                    ChannelDB.insertOrReplace(objects: objects)
+                                    ChannelDB.deleteAll {
+                                        ChannelDB.insert(objects: objects)
+                                    }
                                 }
                             } catch {
                                 print(error)

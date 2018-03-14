@@ -23,26 +23,17 @@ import WCDBSwift
 //}
 //"""
 
-public class Channel: TableCodable {
+class Channel: TableCodable {
     var name: String = ""
     var category: String = ""
     var type: Int = 0
 
-    public enum CodingKeys: String, CodingTableKey {
-        public typealias Root = Channel
-        public static let objectRelationalMapping = TableBinding(CodingKeys.self)
-        // 将下面字段绑定到了表中同名字段
+    enum CodingKeys: String, CodingTableKey {
+        typealias Root = Channel
+        static let objectRelationalMapping = TableBinding(CodingKeys.self)
         case name
         case category
         case type
     }
-
-    // 绑定id为主键
-    static var columnConstraintBindings: [CodingKeys: ColumnConstraintBinding]? {
-        return [
-            CodingKeys.name: ColumnConstraintBinding(isPrimary: true)
-        ]
-    }
-
-//    public var isAutoIncrement: Bool = true
 }
+

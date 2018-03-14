@@ -9,20 +9,18 @@
 import Foundation
 import WCDBSwift
 
-typealias CompleteHandle = ([Channel]?) -> Void
-
 class ChannelDB {
-    static func insertOrReplace(objects: [Channel]) {
+    static func insert(objects: [Channel]) {
         DBManager.dbQueue.async {
             do {
-                try DBManager.db.insertOrReplace(objects: objects, intoTable: TableName.channel.rawValue)
+                try DBManager.db.insert(objects: objects, intoTable: TableName.channel.rawValue)
             } catch {
                 print("insert channel object fail")
             }
         }
     }
 
-    static func getObjects(completeHandle: @escaping CompleteHandle) {
+    static func getObjects(completeHandle: @escaping ([Channel]?) -> Void) {
         DBManager.dbQueue.async {
             do {
                 let channels: [Channel]? = try DBManager.db.getObjects(fromTable: TableName.channel.rawValue)
@@ -30,7 +28,20 @@ class ChannelDB {
                     completeHandle(channels)
                 }
             } catch {
-                print("get channel object fail")
+                DispatchQueue.main.async {
+                    completeHandle(nil)
+                }
+            }
+        }
+    }
+    
+    static func deleteAll(completeHandle: @escaping () -> Void) {
+        DBManager.dbQueue.async {
+            do {
+                try DBManager.db.delete(fromTable: TableName.channel.rawValue)
+                completeHandle()
+            } catch {
+                print(error)
             }
         }
     }
