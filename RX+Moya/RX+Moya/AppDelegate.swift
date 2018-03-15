@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Database.globalTrace(ofSQL: { (sql) in
             print("SQL: \(sql)")
         })
-
+        
         self.window?.makeKeyAndVisible()
         return true
     }

@@ -126,5 +126,28 @@ struct News: Codable {
     var title: String
     var source: String
     var item_id: Int
+    var comment_count: Int
+    var publish_time: TimeInterval
+    var publishTimeString: String = ""
+    var image_list: [NewsImage]?
+    
+    enum CodingKeys: String, CodingKey {
+        case title
+        case source
+        case item_id
+        case comment_count
+        case publish_time
+        case image_list
+    }
+    
+    mutating func timeStampToString() {
+        self.publishTimeString = String.timeStampToString(timeStamp: publish_time)
+    }
+}
+
+struct NewsImage: Codable {
+    var width: Int
+    var height: Int
+    var url: String
 }
 

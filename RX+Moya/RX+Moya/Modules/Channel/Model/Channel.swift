@@ -9,20 +9,6 @@
 import Foundation
 import WCDBSwift
 
-//let channelJson = """
-//{
-//"category": "news_hot",
-//"web_url": "",
-//"flags": 0,
-//"name": "热点",
-//"tip_new": 0,
-//"default_add": 1,
-//"concern_id": "",
-//"type": 4,
-//"icon_url": ""
-//}
-//"""
-
 class Channel: TableCodable {
     var name: String = ""
     var category: String = ""

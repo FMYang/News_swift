@@ -29,6 +29,9 @@
 		88034F022056C8DC000B63DE /* RequestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88034F012056C8DC000B63DE /* RequestStatus.swift */; };
 		88034F0420580348000B63DE /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88034F0320580348000B63DE /* Macro.swift */; };
 		88968A68200256F900FFDB60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88968A67200256F900FFDB60 /* AppDelegate.swift */; };
+		88D48093205AB5B500EBCF17 /* NewsCellStyle1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D48091205AB5B500EBCF17 /* NewsCellStyle1.swift */; };
+		88D48094205AB5B500EBCF17 /* NewsCellStyle1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D48092205AB5B500EBCF17 /* NewsCellStyle1.xib */; };
+		88D48096205AC44300EBCF17 /* String+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D48095205AC44300EBCF17 /* String+Extend.swift */; };
 		E24FCB4B903153EC351307E8 /* Pods_RX_Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E53696FF163844B8DAAE2D /* Pods_RX_Moya.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +61,9 @@
 		88034F0320580348000B63DE /* Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
 		88968A64200256F900FFDB60 /* RX+Moya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RX+Moya.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88968A67200256F900FFDB60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		88D48091205AB5B500EBCF17 /* NewsCellStyle1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewsCellStyle1.swift; path = "RX+Moya/Common/NewsCellStyle1.swift"; sourceTree = SOURCE_ROOT; };
+		88D48092205AB5B500EBCF17 /* NewsCellStyle1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = NewsCellStyle1.xib; path = "RX+Moya/Common/NewsCellStyle1.xib"; sourceTree = SOURCE_ROOT; };
+		88D48095205AC44300EBCF17 /* String+Extend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extend.swift"; sourceTree = "<group>"; };
 		E6B8C07ECB71E1897625981C /* Pods-RX+Moya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RX+Moya.release.xcconfig"; path = "Pods/Target Support Files/Pods-RX+Moya/Pods-RX+Moya.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +155,8 @@
 		3614808E20561BE300B3C87C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				88D48091205AB5B500EBCF17 /* NewsCellStyle1.swift */,
+				88D48092205AB5B500EBCF17 /* NewsCellStyle1.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -263,6 +271,7 @@
 			children = (
 				88034F012056C8DC000B63DE /* RequestStatus.swift */,
 				88034F0320580348000B63DE /* Macro.swift */,
+				88D48095205AC44300EBCF17 /* String+Extend.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -360,6 +369,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88D48094205AB5B500EBCF17 /* NewsCellStyle1.xib in Resources */,
 				361480A120561C1E00B3C87C /* Info.plist in Resources */,
 				361480A020561C1E00B3C87C /* Main.storyboard in Resources */,
 				3614809E20561C1E00B3C87C /* Assets.xcassets in Resources */,
@@ -426,6 +436,7 @@
 				88034EFD2056C1EA000B63DE /* MainVC.swift in Sources */,
 				36D985372057687F008BA188 /* DetailVC.swift in Sources */,
 				3614809320561BE400B3C87C /* NewsListVC.swift in Sources */,
+				88D48096205AC44300EBCF17 /* String+Extend.swift in Sources */,
 				3614809620561BE400B3C87C /* NewsApi.swift in Sources */,
 				3614809220561BE400B3C87C /* NewsListViewModel.swift in Sources */,
 				88034EFF2056C477000B63DE /* ActivityPlugin.swift in Sources */,
@@ -439,6 +450,7 @@
 				3614809520561BE400B3C87C /* ApiTargetType.swift in Sources */,
 				36D9857A2058EF06008BA188 /* ChannelDB.swift in Sources */,
 				36D26E612056742E009FC575 /* ChannelViewModel.swift in Sources */,
+				88D48093205AB5B500EBCF17 /* NewsCellStyle1.swift in Sources */,
 				88968A68200256F900FFDB60 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,6 +526,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -565,6 +578,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -576,6 +590,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33B02556BDAED6F59ABD831E /* Pods-RX+Moya.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -584,7 +599,7 @@
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/RX+Moya/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks $(inherited)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "---.RX-Moya";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -597,6 +612,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E6B8C07ECB71E1897625981C /* Pods-RX+Moya.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -605,7 +621,7 @@
 				ENABLE_TESTABILITY = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/RX+Moya/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks $(inherited)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "---.RX-Moya";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
