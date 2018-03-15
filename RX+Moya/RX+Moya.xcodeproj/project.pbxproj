@@ -29,9 +29,9 @@
 		88034F022056C8DC000B63DE /* RequestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88034F012056C8DC000B63DE /* RequestStatus.swift */; };
 		88034F0420580348000B63DE /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88034F0320580348000B63DE /* Macro.swift */; };
 		88968A68200256F900FFDB60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88968A67200256F900FFDB60 /* AppDelegate.swift */; };
-		88D48093205AB5B500EBCF17 /* NewsCellStyle1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D48091205AB5B500EBCF17 /* NewsCellStyle1.swift */; };
-		88D48094205AB5B500EBCF17 /* NewsCellStyle1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D48092205AB5B500EBCF17 /* NewsCellStyle1.xib */; };
 		88D48096205AC44300EBCF17 /* String+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D48095205AC44300EBCF17 /* String+Extend.swift */; };
+		88D4809A205AD60500EBCF17 /* NewsCellStyle1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D48098205AD60500EBCF17 /* NewsCellStyle1.swift */; };
+		88D4809B205AD60500EBCF17 /* NewsCellStyle1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D48099205AD60500EBCF17 /* NewsCellStyle1.xib */; };
 		E24FCB4B903153EC351307E8 /* Pods_RX_Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E53696FF163844B8DAAE2D /* Pods_RX_Moya.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,9 +61,9 @@
 		88034F0320580348000B63DE /* Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
 		88968A64200256F900FFDB60 /* RX+Moya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RX+Moya.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88968A67200256F900FFDB60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		88D48091205AB5B500EBCF17 /* NewsCellStyle1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewsCellStyle1.swift; path = "RX+Moya/Common/NewsCellStyle1.swift"; sourceTree = SOURCE_ROOT; };
-		88D48092205AB5B500EBCF17 /* NewsCellStyle1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = NewsCellStyle1.xib; path = "RX+Moya/Common/NewsCellStyle1.xib"; sourceTree = SOURCE_ROOT; };
 		88D48095205AC44300EBCF17 /* String+Extend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extend.swift"; sourceTree = "<group>"; };
+		88D48098205AD60500EBCF17 /* NewsCellStyle1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCellStyle1.swift; sourceTree = "<group>"; };
+		88D48099205AD60500EBCF17 /* NewsCellStyle1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCellStyle1.xib; sourceTree = "<group>"; };
 		E6B8C07ECB71E1897625981C /* Pods-RX+Moya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RX+Moya.release.xcconfig"; path = "Pods/Target Support Files/Pods-RX+Moya/Pods-RX+Moya.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,7 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				361480A22056204800B3C87C /* Model */,
-				361480A42056204800B3C87C /* UIView */,
 				361480A32056204800B3C87C /* ViewModel */,
 			);
 			path = Channel;
@@ -123,7 +122,7 @@
 				3614808820561BE300B3C87C /* ViewModel */,
 				3614808A20561BE300B3C87C /* Controller */,
 				3614808C20561BE300B3C87C /* Model */,
-				3614808E20561BE300B3C87C /* View */,
+				88D48097205AD60500EBCF17 /* View */,
 			);
 			path = NewsList;
 			sourceTree = "<group>";
@@ -150,15 +149,6 @@
 				3614808D20561BE300B3C87C /* News.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		3614808E20561BE300B3C87C /* View */ = {
-			isa = PBXGroup;
-			children = (
-				88D48091205AB5B500EBCF17 /* NewsCellStyle1.swift */,
-				88D48092205AB5B500EBCF17 /* NewsCellStyle1.xib */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		3614808F20561BE400B3C87C /* Network */ = {
@@ -199,20 +189,12 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		361480A42056204800B3C87C /* UIView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UIView;
-			sourceTree = "<group>";
-		};
 		36D9853120576867008BA188 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
 				36D9853220576867008BA188 /* ViewModel */,
 				36D9853320576867008BA188 /* Controller */,
 				36D9853420576867008BA188 /* Model */,
-				36D9853520576867008BA188 /* View */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -239,13 +221,6 @@
 				36D9853A20576E3B008BA188 /* NewsDetail.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		36D9853520576867008BA188 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		36D985762058ED47008BA188 /* DB */ = {
@@ -305,6 +280,15 @@
 				3614809720561C1E00B3C87C /* SupportingFiles */,
 			);
 			path = "RX+Moya";
+			sourceTree = "<group>";
+		};
+		88D48097205AD60500EBCF17 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				88D48098205AD60500EBCF17 /* NewsCellStyle1.swift */,
+				88D48099205AD60500EBCF17 /* NewsCellStyle1.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,7 +353,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88D48094205AB5B500EBCF17 /* NewsCellStyle1.xib in Resources */,
+				88D4809B205AD60500EBCF17 /* NewsCellStyle1.xib in Resources */,
 				361480A120561C1E00B3C87C /* Info.plist in Resources */,
 				361480A020561C1E00B3C87C /* Main.storyboard in Resources */,
 				3614809E20561C1E00B3C87C /* Assets.xcassets in Resources */,
@@ -450,7 +434,7 @@
 				3614809520561BE400B3C87C /* ApiTargetType.swift in Sources */,
 				36D9857A2058EF06008BA188 /* ChannelDB.swift in Sources */,
 				36D26E612056742E009FC575 /* ChannelViewModel.swift in Sources */,
-				88D48093205AB5B500EBCF17 /* NewsCellStyle1.swift in Sources */,
+				88D4809A205AD60500EBCF17 /* NewsCellStyle1.swift in Sources */,
 				88968A68200256F900FFDB60 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
