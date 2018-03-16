@@ -41,7 +41,7 @@ class ChannelDB {
                 try DBManager.db.delete(fromTable: TableName.channel.rawValue)
                 completeHandle()
             } catch {
-                print(error)
+                print("delete channel objects fail")
             }
         }
     }

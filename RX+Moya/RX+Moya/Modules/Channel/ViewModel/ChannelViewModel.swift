@@ -17,10 +17,10 @@ class ChannelViewModel {
 
     func getChannel() -> Observable<RequestStatus> {
         return Observable.create({ (observe) -> Disposable in
-            ChannelDB.getObjects(completeHandle: { (result) in
+            ChannelDB.getObjects(completeHandle: { [weak self] (result) in
                 // 如果本地存在，返回本地的数据
                 if let channels = result, channels.count > 0 {
-                    self.channels = channels
+                    self?.channels = channels
                     observe.onNext(.success)
                 } else {
                     // 如果本地不存在获取服务器的数据返回，保存本地
@@ -34,7 +34,7 @@ class ChannelViewModel {
                                 self?.channels = try JSONDecoder().decode([Channel].self, from: array.rawData())
                                 status = .success
 
-                                // 保存栏目数据
+                                // 删除旧数据保存栏目数据
                                 if let objects = self?.channels {
                                     ChannelDB.deleteAll {
                                         ChannelDB.insert(objects: objects)

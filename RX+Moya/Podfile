@@ -15,4 +15,5 @@ target 'RX+Moya' do
   pod 'SwiftyJSON'
   pod 'SnapKit'
   pod 'WCDB.swift'
+  pod 'Kingfisher'
 end

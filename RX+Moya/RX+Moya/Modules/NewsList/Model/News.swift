@@ -125,6 +125,14 @@ let listJson = """
 struct News: Codable {
     var title: String
     var source: String
-    var item_id: Int
+    var itemId: Int
+    var cellStyle: Int
+
+    enum CodingKeys: String, CodingKey {
+        case title
+        case source
+        case itemId = "item_id"
+        case cellStyle = "cell_layout_style"
+    }
 }
 
