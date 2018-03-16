@@ -86,7 +86,7 @@ class DetailVC: UIViewController {
 
     func loadHtml(content: String) {
         let title = "<h3 text-align:left;font-size:18;font-weight:bold;color:#333333;margin-bottom:5px>\(htmlTitle)</h3>"
-        var html = "<html>" + title + content + "</html>"
+        var html = "<html>" + "<body style=font-size:18px;letter-spacing:2px;word-spacing:5px;text-align:justify;overflow:hidden;margin:10px 10px;word-break:break-all>" + title + content +  "</body>" + "</html>"
         self.replaceAllImgTag(html: &html)
         detailWebView.loadHTMLString(html, baseURL: Bundle.main.bundleURL)
     }

@@ -29,7 +29,8 @@ class NewsListViewModel {
                             do {
                                 let data = dic["content"].stringValue.data(using: String.Encoding.utf8)
                                 if let data = data {
-                                    let result: News = try JSONDecoder().decode(News.self, from: data)
+                                    var result: News = try JSONDecoder().decode(News.self, from: data)
+                                    result.timeStampToString()
                                     status = .success
                                     self?.news.append(result)
                                 }
