@@ -16,4 +16,7 @@ target 'RX+Moya' do
   pod 'SnapKit'
   pod 'WCDB.swift'
   pod 'Kingfisher'
+  pod 'libwebp'
+  pod 'KingfisherWebP'
+
 end

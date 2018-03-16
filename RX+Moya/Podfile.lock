@@ -1,6 +1,33 @@
 PODS:
   - Alamofire (4.6.0)
   - Kingfisher (4.6.1)
+  - KingfisherWebP (0.3.1):
+    - Kingfisher (~> 4.0)
+    - libwebp
+  - libwebp (0.6.0):
+    - libwebp/core (= 0.6.0)
+    - libwebp/dec (= 0.6.0)
+    - libwebp/demux (= 0.6.0)
+    - libwebp/dsp (= 0.6.0)
+    - libwebp/enc (= 0.6.0)
+    - libwebp/mux (= 0.6.0)
+    - libwebp/utils (= 0.6.0)
+    - libwebp/webp (= 0.6.0)
+  - libwebp/core (0.6.0):
+    - libwebp/webp
+  - libwebp/dec (0.6.0):
+    - libwebp/core
+  - libwebp/demux (0.6.0):
+    - libwebp/core
+  - libwebp/dsp (0.6.0):
+    - libwebp/core
+  - libwebp/enc (0.6.0):
+    - libwebp/core
+  - libwebp/mux (0.6.0):
+    - libwebp/core
+  - libwebp/utils (0.6.0):
+    - libwebp/core
+  - libwebp/webp (0.6.0)
   - Moya (10.0.1):
     - Moya/Core (= 10.0.1)
   - Moya/Core (10.0.1):
@@ -21,6 +48,8 @@ PODS:
 
 DEPENDENCIES:
   - Kingfisher
+  - KingfisherWebP
+  - libwebp
   - Moya
   - Moya/RxSwift
   - RxCocoa
@@ -32,6 +61,8 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
+  KingfisherWebP: 1d80d4f9541e37df02cf050a3c8a7902d3e1b940
+  libwebp: d8ba533b090a8aafb71f0372ca14a5f226a04ae9
   Moya: 9e621707ff754eeb51ff3ec51a3d54e517c0733a
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   RxCocoa: cc1fec49cdc8fabe645964de7c51c099a36c2aa8
@@ -40,6 +71,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   WCDB.swift: 5bb038bc5bb46067cccc7c48392e8f4c4a15def0
 
-PODFILE CHECKSUM: 7a0541494965d5042970fc019adecac90e0bd24a
+PODFILE CHECKSUM: 9831be6472bb9f2d3ee767b052842510acd1d421
 
 COCOAPODS: 1.1.1

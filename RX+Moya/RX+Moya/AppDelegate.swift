@@ -10,6 +10,8 @@
 
 import UIKit
 import WCDBSwift
+import Kingfisher
+import KingfisherWebP
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.backgroundColor = .white
+        
+        // 支持webp格式图片
+        KingfisherManager.shared.defaultOptions = [.processor(WebPProcessor.default), .cacheSerializer(WebPSerializer.default)]
 
         let vc = MainVC()
         let nav = UINavigationController(rootViewController: vc)

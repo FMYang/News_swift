@@ -26,6 +26,8 @@ class NewsListVC: UIViewController {
         view.tableFooterView = UIView()
         view.estimatedRowHeight = 100
         view.register(UINib(nibName: "NewsCellStyle1", bundle: nil), forCellReuseIdentifier: NewsCellStyle1.reuseIdentify())
+        view.register(UINib(nibName: "NewsCellStyle2", bundle: nil), forCellReuseIdentifier: NewsCellStyle2.reuseIdentify())
+        view.register(UINib(nibName: "NewsCellStyle3", bundle: nil), forCellReuseIdentifier: NewsCellStyle3.reuseIdentify())
         return view
     }()
 
@@ -89,9 +91,11 @@ extension NewsListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NewsCellStyle1.reuseIdentify()) as! NewsCellStyle1
+//        let cell = tableView.dequeueReusableCell(withIdentifier: NewsCellStyle1.reuseIdentify()) as! NewsCellStyle1
         let news = viewModel.news[indexPath.row]
-        cell.bindData(model: news)        
+//        cell.bindData(model: news)
+        let cell = NewsCell.tableView(tableView, cellForRowAt: indexPath, model: news)
+        
         return cell
     }
     

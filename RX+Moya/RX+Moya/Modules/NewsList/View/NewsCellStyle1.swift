@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsCellStyle1: UITableViewCell {
+class NewsCellStyle1: UITableViewCell{
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
@@ -22,7 +22,9 @@ class NewsCellStyle1: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
+}
+
+extension NewsCellStyle1: NewsCellProtocol {
     func bindData(model: News) {
         titleLabel.text = model.title
         sourceLabel.text = model.source

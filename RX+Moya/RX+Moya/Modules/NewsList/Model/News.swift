@@ -129,6 +129,7 @@ struct News: Codable {
     var comment_count: Int
     var publish_time: TimeInterval
     var publishTimeString: String = ""
+    var middle_image: NewsImage?
     var image_list: [NewsImage]?
     
     enum CodingKeys: String, CodingKey {
@@ -137,6 +138,7 @@ struct News: Codable {
         case item_id
         case comment_count
         case publish_time
+        case middle_image
         case image_list
     }
     

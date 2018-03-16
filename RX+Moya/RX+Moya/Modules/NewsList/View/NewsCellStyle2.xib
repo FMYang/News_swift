@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="136" id="KGk-i7-Jjw" customClass="NewsCellStyle2" customModule="RX_Moya" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="419" height="136"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="419" height="135.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="752" text="乌克兰加入北约踩了普京的底线，乌克兰加入北约踩了普京的底线" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugy-Ti-cfD">
+                        <rect key="frame" x="15" y="20" width="264" height="66"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新京报" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RST-NK-TOh">
+                        <rect key="frame" x="15" y="101" width="37" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwG-sv-bTp">
+                        <rect key="frame" x="62" y="101.5" width="32.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ftX-kB-KLw">
+                        <rect key="frame" x="294" y="26" width="110" height="75"/>
+                        <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="110" id="8wM-gT-xaz"/>
+                            <constraint firstAttribute="height" constant="75" id="ICi-k1-G2E"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2分钟前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqk-EY-fID">
+                        <rect key="frame" x="104.5" y="101.5" width="44.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="ftX-kB-KLw" secondAttribute="bottom" priority="999" constant="25" id="D8O-id-21m"/>
+                    <constraint firstItem="ftX-kB-KLw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="15" id="Qua-aT-yI0"/>
+                    <constraint firstAttribute="trailing" secondItem="ftX-kB-KLw" secondAttribute="trailing" constant="15" id="V8H-W0-kkq"/>
+                    <constraint firstAttribute="bottom" secondItem="RST-NK-TOh" secondAttribute="bottom" constant="20" id="brf-tQ-MlL"/>
+                    <constraint firstItem="zwG-sv-bTp" firstAttribute="leading" secondItem="RST-NK-TOh" secondAttribute="trailing" constant="10" id="cCa-ob-X9I"/>
+                    <constraint firstItem="ugy-Ti-cfD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="dke-fh-wkh"/>
+                    <constraint firstItem="ugy-Ti-cfD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="g1V-K5-JhC"/>
+                    <constraint firstItem="jqk-EY-fID" firstAttribute="centerY" secondItem="RST-NK-TOh" secondAttribute="centerY" id="kmh-K7-zHG"/>
+                    <constraint firstItem="ftX-kB-KLw" firstAttribute="leading" secondItem="ugy-Ti-cfD" secondAttribute="trailing" constant="15" id="mXN-4q-StR"/>
+                    <constraint firstItem="RST-NK-TOh" firstAttribute="leading" secondItem="ugy-Ti-cfD" secondAttribute="leading" id="nOO-Bc-fd3"/>
+                    <constraint firstItem="RST-NK-TOh" firstAttribute="top" secondItem="ugy-Ti-cfD" secondAttribute="bottom" constant="15" id="oTq-f8-y6z"/>
+                    <constraint firstItem="jqk-EY-fID" firstAttribute="leading" secondItem="zwG-sv-bTp" secondAttribute="trailing" constant="10" id="x0Z-3G-Jsc"/>
+                    <constraint firstItem="zwG-sv-bTp" firstAttribute="centerY" secondItem="RST-NK-TOh" secondAttribute="centerY" id="zxc-Xs-q1e"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="commentLabel" destination="zwG-sv-bTp" id="4AY-BT-Tg1"/>
+                <outlet property="newsImageView" destination="ftX-kB-KLw" id="OEB-hf-R2P"/>
+                <outlet property="sourceLabel" destination="RST-NK-TOh" id="ghr-o7-Tu3"/>
+                <outlet property="timeLabel" destination="jqk-EY-fID" id="Cfe-ZW-zd5"/>
+                <outlet property="titleLabel" destination="ugy-Ti-cfD" id="9cZ-xR-md4"/>
+            </connections>
+            <point key="canvasLocation" x="-176.5" y="-120"/>
+        </tableViewCell>
+    </objects>
+</document>
