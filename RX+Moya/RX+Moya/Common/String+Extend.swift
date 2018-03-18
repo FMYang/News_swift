@@ -7,8 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
 extension String {
+    /// 新闻类时间戳转字符串
+    ///
+    /// - Parameter timeStamp: 时间戳
+    /// - Returns: 转换之后的字符串
     static func timeStampToString(timeStamp: TimeInterval) -> String {
         let date = Date(timeIntervalSince1970: timeStamp)
         let formatter = DateFormatter()
@@ -29,4 +34,15 @@ extension String {
             return dateString
         }
     }
+    
+    /// 计算字符串的宽高
+    ///
+    /// - Parameters:
+    ///   - size: 目标字符串宽高，计算高度设置宽为MAXFLOAT，计算宽度设置高度为MAXFLOAT
+    ///   - font: 目标字符串使用的字体
+    /// - Returns: 目标字符串的Size结构体
+    public func sizeWithString(size: CGSize, font: UIFont) -> CGSize {
+        return self.boundingRect(with: size, options: NSStringDrawingOptions.usesFontLeading, attributes: [NSAttributedStringKey.font: font], context: nil).size
+    }
+
 }

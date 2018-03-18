@@ -12,6 +12,7 @@ import Moya
 let requestClosure = { (endpoint: Endpoint<MultiTarget>, done: @escaping MoyaProvider<MultiTarget>.RequestResultClosure) in
     do {
         var request = try endpoint.urlRequest()
+        print("完整url: \(request)")
         request.timeoutInterval = 10    //设置请求超时时间
         done(.success(request))
     } catch {

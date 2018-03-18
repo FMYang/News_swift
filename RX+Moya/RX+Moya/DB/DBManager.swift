@@ -19,7 +19,7 @@ let dbPath = NSHomeDirectory() + "/Documents/NewsDB/news.db"
 // 单例
 class DBManager {
 
-    static let dbQueue = DispatchQueue(label: "com.task.queue", attributes: .concurrent)
+    static let dbQueue = DispatchQueue(label: "com.news.queue", attributes: .concurrent)
 
     static let db = Database(withPath: dbPath)
 

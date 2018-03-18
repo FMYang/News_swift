@@ -16,6 +16,7 @@ class NewsCellStyle2: UITableViewCell {
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var newsImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,6 +31,7 @@ class NewsCellStyle2: UITableViewCell {
 
 extension NewsCellStyle2: NewsCellProtocol {
     func bindData(model: News) {
+        print(model.source)
         titleLabel.text = model.title
         sourceLabel.text = model.source
         commentLabel.text = String(model.comment_count)+"评论"
@@ -37,6 +39,8 @@ extension NewsCellStyle2: NewsCellProtocol {
         if let urlString = model.middle_image?.url, let url = URL(with: urlString)  {
             newsImageView.kf.setImage(with: url)
         }
+        
+        self.layoutIfNeeded()
     }
     
     static func reuseIdentify() -> String {

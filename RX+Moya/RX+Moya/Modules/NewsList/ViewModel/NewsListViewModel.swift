@@ -25,6 +25,7 @@ class NewsListViewModel {
                         let json = try JSON(data: reponse.data)
                         let array = json["data"].arrayValue
                         
+                        var resultNews = [News]()
                         for dic in array {
                             do {
                                 let data = dic["content"].stringValue.data(using: String.Encoding.utf8)
@@ -32,13 +33,14 @@ class NewsListViewModel {
                                     var result: News = try JSONDecoder().decode(News.self, from: data)
                                     result.timeStampToString()
                                     status = .success
-                                    self?.news.append(result)
+                                    resultNews.append(result)
                                 }
                             } catch {
                                 print(error)
                                 status = .serviceError
                             }
                         }
+                        self?.news = resultNews
                     case .failure(_):
                         status = .serviceError
                     }

@@ -9,12 +9,6 @@
 import Foundation
 import UIKit
 
-enum NewsCellStyle {
-    case noImage
-    case oneImage
-    case threeImage
-}
-
 class NewsCell {
     
    static func tableView(_ tableView: UITableView,

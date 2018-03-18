@@ -37,6 +37,11 @@ class NewsListVC: UIViewController {
         channelName = channel
     }
     
+    func loadData(channel: String) {
+        channelName = channel
+        self.loadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,7 +51,7 @@ class NewsListVC: UIViewController {
         
         self.setupUI()
         
-        self.loadData()
+//        self.loadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -91,11 +96,12 @@ extension NewsListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: NewsCellStyle1.reuseIdentify()) as! NewsCellStyle1
+        if indexPath.row > viewModel.news.count - 1 {
+            return UITableViewCell()
+        }
         let news = viewModel.news[indexPath.row]
-//        cell.bindData(model: news)
         let cell = NewsCell.tableView(tableView, cellForRowAt: indexPath, model: news)
-        
+        cell.selectionStyle = .none
         return cell
     }
     

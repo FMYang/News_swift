@@ -31,7 +31,6 @@
 		36D9853B20576E3B008BA188 /* NewsDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D9853A20576E3B008BA188 /* NewsDetail.swift */; };
 		36D985782058ED59008BA188 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D985772058ED59008BA188 /* DBManager.swift */; };
 		36D9857A2058EF06008BA188 /* ChannelDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D985792058EF06008BA188 /* ChannelDB.swift */; };
-		88034EFD2056C1EA000B63DE /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88034EFC2056C1EA000B63DE /* MainVC.swift */; };
 		88034EFF2056C477000B63DE /* ActivityPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88034EFE2056C477000B63DE /* ActivityPlugin.swift */; };
 		88034F022056C8DC000B63DE /* RequestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88034F012056C8DC000B63DE /* RequestStatus.swift */; };
 		88034F0420580348000B63DE /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88034F0320580348000B63DE /* Macro.swift */; };
@@ -39,6 +38,10 @@
 		88D48096205AC44300EBCF17 /* String+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D48095205AC44300EBCF17 /* String+Extend.swift */; };
 		88D4809A205AD60500EBCF17 /* NewsCellStyle1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D48098205AD60500EBCF17 /* NewsCellStyle1.swift */; };
 		88D4809B205AD60500EBCF17 /* NewsCellStyle1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D48099205AD60500EBCF17 /* NewsCellStyle1.xib */; };
+		88F73030205D2CD900A8E73A /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F7302F205D2CD900A8E73A /* PageViewController.swift */; };
+		88F73032205D2F3A00A8E73A /* MainContainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F73031205D2F3A00A8E73A /* MainContainVC.swift */; };
+		88F73035205D699A00A8E73A /* ChannelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F73034205D699A00A8E73A /* ChannelView.swift */; };
+		88F73037205D69FF00A8E73A /* UIColor+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F73036205D69FF00A8E73A /* UIColor+Extend.swift */; };
 		E24FCB4B903153EC351307E8 /* Pods_RX_Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E53696FF163844B8DAAE2D /* Pods_RX_Moya.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,7 +72,6 @@
 		36D985772058ED59008BA188 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		36D985792058EF06008BA188 /* ChannelDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDB.swift; sourceTree = "<group>"; };
 		74E53696FF163844B8DAAE2D /* Pods_RX_Moya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RX_Moya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		88034EFC2056C1EA000B63DE /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		88034EFE2056C477000B63DE /* ActivityPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPlugin.swift; sourceTree = "<group>"; };
 		88034F012056C8DC000B63DE /* RequestStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestStatus.swift; sourceTree = "<group>"; };
 		88034F0320580348000B63DE /* Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
@@ -78,6 +80,10 @@
 		88D48095205AC44300EBCF17 /* String+Extend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extend.swift"; sourceTree = "<group>"; };
 		88D48098205AD60500EBCF17 /* NewsCellStyle1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCellStyle1.swift; sourceTree = "<group>"; };
 		88D48099205AD60500EBCF17 /* NewsCellStyle1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCellStyle1.xib; sourceTree = "<group>"; };
+		88F7302F205D2CD900A8E73A /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		88F73031205D2F3A00A8E73A /* MainContainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainVC.swift; sourceTree = "<group>"; };
+		88F73034205D699A00A8E73A /* ChannelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelView.swift; sourceTree = "<group>"; };
+		88F73036205D69FF00A8E73A /* UIColor+Extend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extend.swift"; sourceTree = "<group>"; };
 		E6B8C07ECB71E1897625981C /* Pods-RX+Moya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RX+Moya.release.xcconfig"; path = "Pods/Target Support Files/Pods-RX+Moya/Pods-RX+Moya.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +132,7 @@
 			children = (
 				361480A22056204800B3C87C /* Model */,
 				361480A32056204800B3C87C /* ViewModel */,
+				88F73033205D699A00A8E73A /* View */,
 			);
 			path = Channel;
 			sourceTree = "<group>";
@@ -250,7 +257,7 @@
 		88034EFB2056C1CD000B63DE /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				88034EFC2056C1EA000B63DE /* MainVC.swift */,
+				88F73031205D2F3A00A8E73A /* MainContainVC.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -262,6 +269,7 @@
 				88034F0320580348000B63DE /* Macro.swift */,
 				88D48095205AC44300EBCF17 /* String+Extend.swift */,
 				369A3380205B8AEB00221442 /* UIView+Frame.swift */,
+				88F73036205D69FF00A8E73A /* UIColor+Extend.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -292,6 +300,7 @@
 				3614808520561BE300B3C87C /* Modules */,
 				3614808F20561BE400B3C87C /* Network */,
 				36D985762058ED47008BA188 /* DB */,
+				88F7302E205D2CD900A8E73A /* Component */,
 				3614809720561C1E00B3C87C /* SupportingFiles */,
 			);
 			path = "RX+Moya";
@@ -308,6 +317,22 @@
 				369A3379205B5D7700221442 /* NewsCellStyle3.xib */,
 				369A337C205B5D8900221442 /* NewsCell.swift */,
 				369A337E205B5E7400221442 /* UITableViewCell+BindData.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		88F7302E205D2CD900A8E73A /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				88F7302F205D2CD900A8E73A /* PageViewController.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		88F73033205D699A00A8E73A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				88F73034205D699A00A8E73A /* ChannelView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -440,16 +465,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				361480A62056206000B3C87C /* Channel.swift in Sources */,
-				88034EFD2056C1EA000B63DE /* MainVC.swift in Sources */,
 				36D985372057687F008BA188 /* DetailVC.swift in Sources */,
 				3614809320561BE400B3C87C /* NewsListVC.swift in Sources */,
 				369A337F205B5E7400221442 /* UITableViewCell+BindData.swift in Sources */,
 				369A337D205B5D8900221442 /* NewsCell.swift in Sources */,
+				88F73037205D69FF00A8E73A /* UIColor+Extend.swift in Sources */,
 				369A337A205B5D7700221442 /* NewsCellStyle3.swift in Sources */,
 				88D48096205AC44300EBCF17 /* String+Extend.swift in Sources */,
 				3614809620561BE400B3C87C /* NewsApi.swift in Sources */,
 				3614809220561BE400B3C87C /* NewsListViewModel.swift in Sources */,
 				88034EFF2056C477000B63DE /* ActivityPlugin.swift in Sources */,
+				88F73032205D2F3A00A8E73A /* MainContainVC.swift in Sources */,
+				88F73035205D699A00A8E73A /* ChannelView.swift in Sources */,
 				3614809420561BE400B3C87C /* News.swift in Sources */,
 				88034F0420580348000B63DE /* Macro.swift in Sources */,
 				88034F022056C8DC000B63DE /* RequestStatus.swift in Sources */,
@@ -462,6 +489,7 @@
 				369A3376205B5D4F00221442 /* NewsCellStyle2.swift in Sources */,
 				36D9857A2058EF06008BA188 /* ChannelDB.swift in Sources */,
 				36D26E612056742E009FC575 /* ChannelViewModel.swift in Sources */,
+				88F73030205D2CD900A8E73A /* PageViewController.swift in Sources */,
 				88D4809A205AD60500EBCF17 /* NewsCellStyle1.swift in Sources */,
 				88968A68200256F900FFDB60 /* AppDelegate.swift in Sources */,
 			);
@@ -606,13 +634,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 464SP5UW8T;
+				DEVELOPMENT_TEAM = 468RHTY984;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/RX+Moya/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "---.RX-Moya";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yfm.RX-Moya";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -628,13 +656,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 464SP5UW8T;
+				DEVELOPMENT_TEAM = 468RHTY984;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_TESTABILITY = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/RX+Moya/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "---.RX-Moya";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yfm.RX-Moya";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
