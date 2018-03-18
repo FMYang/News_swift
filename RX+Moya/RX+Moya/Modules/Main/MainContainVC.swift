@@ -79,33 +79,29 @@ class MainContainVC: UIViewController {
 }
 
 extension MainContainVC: PageViewDelegate, PageViewDatasource {
+    
+    func pageViewControllerPreLoad(viewController: UIViewController?) {
+        print("pageViewControllerPreLoad")
+        let page = Int(viewController!.view.frame.origin.x / screenWidth)
+        if let viewController = viewController as? NewsListVC {
+            let channel = viewModel.channels[page]
+            viewController.loadData(channel: channel.category)
+        }
+    }
+    
     // TODO：优化：左滑加载after 优化加载before，判断滑动方向
-    func pageViewControllerDidChange(currentVC: UIViewController, beforeVC: UIViewController?, afterVC: UIViewController?, page: Int) {
-        
+    func pageViewControllerDidChange(currentVC: UIViewController, page: Int) {
+        print("pageViewControllerDidChange")
         channelView.selectItem(index: page)
 
         if page < 0 || page > viewModel.channels.count {
             return
         }
-
-        // 加载当前页
+        
         let category = viewModel.channels[page].category
         let vc = currentVC as! NewsListVC
-        vc.loadData(channel: category)
-
-        // 预加载上一页
-        if page > 0 {
-            let beforeCategory = viewModel.channels[page-1].category
-
-            if let before = beforeVC as? NewsListVC {
-                before.loadData(channel: beforeCategory)
-            }
-        }
-        
-        // 预加载下一页
-        let afterCategory = viewModel.channels[page+1].category
-        if let after = afterVC as? NewsListVC {
-            after.loadData(channel: afterCategory)
+        if vc.viewModel.news.count == 0 {
+            vc.loadData(channel: category)
         }
     }
     

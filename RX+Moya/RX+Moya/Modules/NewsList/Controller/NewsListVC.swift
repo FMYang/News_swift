@@ -44,14 +44,10 @@ class NewsListVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        print("\(channelName) viewWillAppear")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
-        print("\(channelName) viewWillDisappear")
         
         // 页面离开的时候保存数据
         NewsListDB.deleteAll(by: channelName) { [weak self] in
@@ -92,11 +88,12 @@ class NewsListVC: UIViewController {
             guard let strongSelf = self else {
                 return
             }
-            if let news = news {
+            if let news = news, news.count > 0 {
                 strongSelf.viewModel.news = news
                 strongSelf.tableView.reloadData()
+                return
             }
-            
+        
             if news == nil || news?.count == 0 {
                 strongSelf.viewModel.getNewsList(channel: strongSelf.channelName, count: 10)
                     .subscribe(onNext: { [weak self] (status) in

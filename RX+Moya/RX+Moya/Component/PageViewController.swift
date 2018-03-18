@@ -11,21 +11,29 @@
 
 import UIKit
 
+enum PageViewScrollDiretion {
+    case left
+    case right
+}
+
 protocol PageViewDatasource: class {
     // 数据源代理
     func pageViewController() -> UIViewController
 }
 
 protocol PageViewDelegate: class {
-    // 翻页完成代理
-    func pageViewControllerDidChange(currentVC: UIViewController, beforeVC: UIViewController?, afterVC: UIViewController?, page: Int)
+    // 页面切换完成
+    func pageViewControllerDidChange(currentVC: UIViewController, page: Int)
+    
+    // 预加载viewController
+    func pageViewControllerPreLoad(viewController: UIViewController?)
 }
 
 class PageViewController: UIViewController {
     
     weak var datasource: PageViewDatasource?
     weak var delegate: PageViewDelegate?
-    
+    var direction: PageViewScrollDiretion = .right
     var reuseViewControllers = [UIViewController]()
     var visibleViewController = [UIViewController]()
     var currentPage: Int = -1
@@ -114,6 +122,17 @@ class PageViewController: UIViewController {
         }
     }
     
+    // 加入容器并设置frame
+    func addChildViewController(page: Int) {
+        if page < 0 || page > totalPages-1 { return }
+        let vc = self.dequeueReuseViewController(page: page)
+        vc.view.frame = CGRect(x: viewFrame.size.width * CGFloat(page), y: 0, width: viewFrame.size.width, height: viewFrame.size.height)
+        
+        // 视图将要显示
+        pageScrollView.addSubview(vc.view)
+        visibleViewController.append(vc)
+    }
+    
     // 重用VC
     func dequeueReuseViewController(page: Int) -> UIViewController {
         // 获取重用池的第一个VC
@@ -131,21 +150,24 @@ class PageViewController: UIViewController {
         
         return vc
     }
-    
-    // 加入容器并设置frame
-    func addChildViewController(page: Int) {
-        if page < 0 || page > totalPages-1 { return }
-        let vc = self.dequeueReuseViewController(page: page)
-        vc.view.frame = CGRect(x: viewFrame.size.width * CGFloat(page), y: 0, width: viewFrame.size.width, height: viewFrame.size.height)
-        
-        // 视图将要显示
-        pageScrollView.addSubview(vc.view)
-        visibleViewController.append(vc)
-    }
 }
 
 extension PageViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        if scrollView == pageScrollView {
+//            if scrollView.contentOffset.x <= 0 || scrollView.contentOffset.x >= scrollView.contentSize.width {
+//                return
+//            }
+//            var page = Int(roundf(Float(scrollView.contentOffset.x / scrollView.frame.size.width)))
+//            page = max(page, 0)
+//            page = min(page, totalPages-1)
+//            self.loadPage(page: page)
+//
+//            self.pageDidChange(page: page)
+//        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if scrollView == pageScrollView {
             if scrollView.contentOffset.x <= 0 || scrollView.contentOffset.x >= scrollView.contentSize.width {
                 return
@@ -159,15 +181,29 @@ extension PageViewController: UIScrollViewDelegate {
         }
     }
     
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        if velocity.x > 0 {
+            direction = .right
+        } else {
+            direction = .left
+        }
+    }
+    
     // 获取容器中的VC，前一个、当前、后一个VC
     func pageDidChange(page: Int) {
+        print("pageDidChange")
         for vc in visibleViewController {
             if vc.view.frame.origin.x == pageScrollView.contentOffset.x {
                 let (beforeVC, afterVC) = self.getBeforAndAfterVC(currentVC: vc)
-                delegate?.pageViewControllerDidChange(currentVC: vc, beforeVC: beforeVC, afterVC: afterVC, page: page)
+                if direction == .left {
+                    delegate?.pageViewControllerPreLoad(viewController: beforeVC)
+                } else {
+                    delegate?.pageViewControllerPreLoad(viewController: afterVC)
+                }
+                delegate?.pageViewControllerDidChange(currentVC: vc, page: page)
                 break
             } else {
-                delegate?.pageViewControllerDidChange(currentVC: vc, beforeVC: nil, afterVC: nil, page: page)
+                delegate?.pageViewControllerDidChange(currentVC: vc, page: page)
             }
         }
     }
