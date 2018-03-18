@@ -42,6 +42,28 @@ class NewsListVC: UIViewController {
         self.loadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print("\(channelName) viewWillAppear")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        print("\(channelName) viewWillDisappear")
+        
+        // 页面离开的时候保存数据
+        NewsListDB.deleteAll(by: channelName) { [weak self] in
+            if let strongSelf = self {
+                for news in strongSelf.viewModel.news {
+                    news.category = strongSelf.channelName
+                }
+                NewsListDB.insert(objects: strongSelf.viewModel.news)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,8 +72,6 @@ class NewsListVC: UIViewController {
         self.navigationItem.title = "列表"
         
         self.setupUI()
-        
-//        self.loadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,21 +88,33 @@ class NewsListVC: UIViewController {
     
     // MARK: - 网络请求
     func loadData() {
-        viewModel.getNewsList(channel: channelName, count: 10)
-            .subscribe(onNext: { [weak self] (status) in
-                switch status {
-                case .success:
-                    self?.tableView.reloadData()
-                case .emptyData:
-                    print("emptyData")
-                case .serviceError:
-                    print("serviceError")
-                case .networkLost:
-                    print("networkLost")
-                case .clientError:
-                    print("clientError")
-                }
-            }).disposed(by: disposeBag)
+        NewsListDB.getObjects(by: channelName) { [weak self] (news) in
+            guard let strongSelf = self else {
+                return
+            }
+            if let news = news {
+                strongSelf.viewModel.news = news
+                strongSelf.tableView.reloadData()
+            }
+            
+            if news == nil || news?.count == 0 {
+                strongSelf.viewModel.getNewsList(channel: strongSelf.channelName, count: 10)
+                    .subscribe(onNext: { [weak self] (status) in
+                        switch status {
+                        case .success:
+                            self?.tableView.reloadData()
+                        case .emptyData:
+                            print("emptyData")
+                        case .serviceError:
+                            print("serviceError")
+                        case .networkLost:
+                            print("networkLost")
+                        case .clientError:
+                            print("clientError")
+                        }
+                    }).disposed(by: strongSelf.disposeBag)
+            }
+        }
     }
 }
 

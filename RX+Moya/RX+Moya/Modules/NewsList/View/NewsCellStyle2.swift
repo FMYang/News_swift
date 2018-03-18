@@ -31,7 +31,6 @@ class NewsCellStyle2: UITableViewCell {
 
 extension NewsCellStyle2: NewsCellProtocol {
     func bindData(model: News) {
-        print(model.source)
         titleLabel.text = model.title
         sourceLabel.text = model.source
         commentLabel.text = String(model.comment_count)+"评论"

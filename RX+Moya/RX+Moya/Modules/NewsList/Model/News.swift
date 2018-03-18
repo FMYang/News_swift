@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyJSON
+import WCDBSwift
 
 let listJson = """
 {
@@ -122,17 +123,20 @@ let listJson = """
 }
 """
 
-struct News: Codable {
-    var title: String
-    var source: String
-    var item_id: Int
-    var comment_count: Int
-    var publish_time: TimeInterval
+class News: TableCodable {
+    var title: String = ""
+    var source: String = ""
+    var item_id: Int = 0
+    var comment_count: Int = 0
+    var publish_time: TimeInterval = 0.0
     var publishTimeString: String = ""
     var middle_image: NewsImage?
     var image_list: [NewsImage]?
+    var category: String = ""
     
-    enum CodingKeys: String, CodingKey {
+    enum CodingKeys: String, CodingTableKey {
+        typealias Root = News
+        static let objectRelationalMapping = TableBinding(CodingKeys.self)
         case title
         case source
         case item_id
@@ -140,16 +144,50 @@ struct News: Codable {
         case publish_time
         case middle_image
         case image_list
+        case category
+        case publishTimeString
     }
     
-    mutating func timeStampToString() {
+//    enum CodingKeys: String, CodingKey {
+//        case title
+//        case source
+//        case item_id
+//        case comment_count
+//        case publish_time
+//        case middle_image
+//        case image_list
+//    }
+    
+    func timeStampToString() {
         self.publishTimeString = String.timeStampToString(timeStamp: publish_time)
     }
 }
 
-struct NewsImage: Codable {
-    var width: Int
-    var height: Int
-    var url: String
+class NewsImage: ColumnCodable {
+//    var width: Int
+//    var height: Int
+    var url: String = ""
+    
+    // 自定义模型映射
+    typealias FundamentalType = Data
+    
+    required init?(with value: Data) {
+        guard value.count > 0 else {
+            return nil
+        }
+        guard let dictionary = try? JSONDecoder().decode([String: String].self, from: value) else {
+            return nil
+        }
+//        width = dictionary["width"] ?? ""
+//        height = Int(dictionary["height"] ?? "")!
+        url = dictionary["url"] ?? ""
+    }
+    
+    func archivedValue() -> Data? {
+        return try? JSONEncoder().encode([
+//            "width": width,
+//            "height": height,
+            "url": url])
+    }
 }
 

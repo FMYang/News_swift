@@ -38,8 +38,7 @@ extension DBManager {
             do {
                 try DBManager.db.run(transaction: {
                     try DBManager.db.create(table: TableName.channel.rawValue, of: Channel.self)
-//                    try DBManager.db.create(table: "SampleTable", of: Sample.self)
-//                    try DBManager.db.create(table: TableName.newsList.rawValue, of: News.self)
+                    try DBManager.db.create(table: TableName.newsList.rawValue, of: News.self)
                 })
             } catch {
                 print(error)

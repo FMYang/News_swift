@@ -42,6 +42,19 @@ class DetailVC: UIViewController {
         newId = itemId
         htmlTitle = title
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIApplication.shared.statusBarStyle = .default
+        self.navigationController?.navigationBar.setBackgroundImage(UIColor.createImageFromColor(color: UIColor.white), for: UIBarMetrics.default)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

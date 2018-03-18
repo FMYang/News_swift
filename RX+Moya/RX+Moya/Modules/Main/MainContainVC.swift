@@ -23,11 +23,22 @@ class MainContainVC: UIViewController {
     
     lazy var pageVC: PageViewController = {
         let vc = PageViewController(frame: CGRect(x: 0, y: 30, width: screenWidth, height: self.view.frame.size.height-30))
-//        vc.pageScrollView.delegate = self
         vc.datasource = self
         vc.delegate = self
         return vc
     }()
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIColor.createImageFromColor(color: UIColor(valueRGB: 0xd43d3c)), for: UIBarMetrics.default)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIColor.createImageFromColor(color: UIColor.white), for: UIBarMetrics.default)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,24 +82,31 @@ extension MainContainVC: PageViewDelegate, PageViewDatasource {
     // TODO：优化：左滑加载after 优化加载before，判断滑动方向
     func pageViewControllerDidChange(currentVC: UIViewController, beforeVC: UIViewController?, afterVC: UIViewController?, page: Int) {
         
+        channelView.selectItem(index: page)
+
         if page < 0 || page > viewModel.channels.count {
             return
         }
-        
-//        print("page = \(page), afterPage = \(page+1)")
-        
-        let category = viewModel.channels[page].category
-        let afterCategory = viewModel.channels[page+1].category
-        let vc = currentVC as! NewsListVC
-        if vc.viewModel.news.count == 0 {
-            vc.loadData(channel: category)
-        }
 
+        // 加载当前页
+        let category = viewModel.channels[page].category
+        let vc = currentVC as! NewsListVC
+        vc.loadData(channel: category)
+
+        // 预加载上一页
+        if page > 0 {
+            let beforeCategory = viewModel.channels[page-1].category
+
+            if let before = beforeVC as? NewsListVC {
+                before.loadData(channel: beforeCategory)
+            }
+        }
+        
+        // 预加载下一页
+        let afterCategory = viewModel.channels[page+1].category
         if let after = afterVC as? NewsListVC {
             after.loadData(channel: afterCategory)
         }
-        
-        channelView.selectItem(index: page)
     }
     
     func pageViewController() -> UIViewController {

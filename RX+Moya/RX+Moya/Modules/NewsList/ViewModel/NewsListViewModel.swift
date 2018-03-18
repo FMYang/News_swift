@@ -28,13 +28,15 @@ class NewsListViewModel {
                         var resultNews = [News]()
                         for dic in array {
                             do {
-                                let data = dic["content"].stringValue.data(using: String.Encoding.utf8)
-                                if let data = data {
-                                    var result: News = try JSONDecoder().decode(News.self, from: data)
-                                    result.timeStampToString()
-                                    status = .success
-                                    resultNews.append(result)
-                                }
+                                let contentData = dic["content"].stringValue.data(using: .utf8)
+                                var contentDic = try JSON.init(data: contentData!)
+                                contentDic["category"] = ""
+                                contentDic["publishTimeString"] = ""
+                                let data = try contentDic.rawData()
+                                let result: News = try JSONDecoder().decode(News.self, from: data)
+                                result.timeStampToString()
+                                status = .success
+                                resultNews.append(result)
                             } catch {
                                 print(error)
                                 status = .serviceError

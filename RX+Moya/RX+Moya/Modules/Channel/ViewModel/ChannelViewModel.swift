@@ -21,7 +21,7 @@ class ChannelViewModel {
                 // 如果本地存在，返回本地的数据
                 if let channels = result, channels.count > 0 {
                     self?.channels = channels
-                    self?.channels = self!.channels.filter() { $0.category != "news_hot" && $0.category != "subscription" && $0.category != "news_local" }
+                    self?.channels = self!.channels.filter() { $0.category != "news_hot" && $0.category != "subscription" && $0.category != "news_local" && $0.category != "video" }
                     observe.onNext(.success)
                 } else {
                     // 如果本地不存在获取服务器的数据返回，保存本地
