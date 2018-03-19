@@ -38,10 +38,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DBManager.share.createAllTable()
         print(dbPath)
         
-        Database.globalTrace(ofSQL: { (sql) in
-            print("SQL: \(sql)")
-        })
-        
+//        Database.globalTrace(ofSQL: { (sql) in
+//            print("SQL: \(sql)")
+//        })
+
         self.window?.makeKeyAndVisible()
         return true
     }

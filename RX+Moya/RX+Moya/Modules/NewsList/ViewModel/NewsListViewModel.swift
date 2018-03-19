@@ -43,6 +43,14 @@ class NewsListViewModel {
                             }
                         }
                         self?.news = resultNews
+
+                        // 保存数据
+                        NewsListDB.deleteAll(by: channel) {
+                            for model in resultNews {
+                                model.category = channel
+                            }
+                            NewsListDB.insert(objects: resultNews)
+                        }
                     case .failure(_):
                         status = .serviceError
                     }

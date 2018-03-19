@@ -79,20 +79,24 @@ class MainContainVC: UIViewController {
 }
 
 extension MainContainVC: PageViewDelegate, PageViewDatasource {
+
+    func pageViewControllerScrollDidScroller(_ scrollView: UIScrollView, page: Int) {
+        channelView.selectItem(index: page)
+    }
     
-    func pageViewControllerPreLoad(viewController: UIViewController?) {
+    func pageViewControllerPreLoad(viewController: UIViewController, page: Int) {
         print("pageViewControllerPreLoad")
-        let page = Int(viewController!.view.frame.origin.x / screenWidth)
-        if let viewController = viewController as? NewsListVC {
+//        let page = Int(viewController.view.frame.origin.x / screenWidth)
+//        if let viewController = viewController as? NewsListVC {
+            let viewController = viewController as! NewsListVC
             let channel = viewModel.channels[page]
             viewController.loadData(channel: channel.category)
-        }
+//        }
     }
     
     // TODO：优化：左滑加载after 优化加载before，判断滑动方向
     func pageViewControllerDidChange(currentVC: UIViewController, page: Int) {
         print("pageViewControllerDidChange")
-        channelView.selectItem(index: page)
 
         if page < 0 || page > viewModel.channels.count {
             return

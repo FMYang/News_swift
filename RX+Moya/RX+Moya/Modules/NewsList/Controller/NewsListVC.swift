@@ -48,16 +48,6 @@ class NewsListVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
-        // 页面离开的时候保存数据
-        NewsListDB.deleteAll(by: channelName) { [weak self] in
-            if let strongSelf = self {
-                for news in strongSelf.viewModel.news {
-                    news.category = strongSelf.channelName
-                }
-                NewsListDB.insert(objects: strongSelf.viewModel.news)
-            }
-        }
     }
     
     override func viewDidLoad() {
