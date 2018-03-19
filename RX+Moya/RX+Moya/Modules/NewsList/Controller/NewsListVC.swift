@@ -37,6 +37,29 @@ class NewsListVC: UIViewController {
         channelName = channel
     }
     
+    func loadData(channel: String) {
+        channelName = channel
+        self.loadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        // 页面离开的时候保存数据
+        NewsListDB.deleteAll(by: channelName) { [weak self] in
+            if let strongSelf = self {
+                for news in strongSelf.viewModel.news {
+                    news.category = strongSelf.channelName
+                }
+                NewsListDB.insert(objects: strongSelf.viewModel.news)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,8 +68,6 @@ class NewsListVC: UIViewController {
         self.navigationItem.title = "列表"
         
         self.setupUI()
-        
-        self.loadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -63,21 +84,34 @@ class NewsListVC: UIViewController {
     
     // MARK: - 网络请求
     func loadData() {
-        viewModel.getNewsList(channel: channelName, count: 10)
-            .subscribe(onNext: { [weak self] (status) in
-                switch status {
-                case .success:
-                    self?.tableView.reloadData()
-                case .emptyData:
-                    print("emptyData")
-                case .serviceError:
-                    print("serviceError")
-                case .networkLost:
-                    print("networkLost")
-                case .clientError:
-                    print("clientError")
-                }
-            }).disposed(by: disposeBag)
+        NewsListDB.getObjects(by: channelName) { [weak self] (news) in
+            guard let strongSelf = self else {
+                return
+            }
+            if let news = news, news.count > 0 {
+                strongSelf.viewModel.news = news
+                strongSelf.tableView.reloadData()
+                return
+            }
+        
+            if news == nil || news?.count == 0 {
+                strongSelf.viewModel.getNewsList(channel: strongSelf.channelName, count: 10)
+                    .subscribe(onNext: { [weak self] (status) in
+                        switch status {
+                        case .success:
+                            self?.tableView.reloadData()
+                        case .emptyData:
+                            print("emptyData")
+                        case .serviceError:
+                            print("serviceError")
+                        case .networkLost:
+                            print("networkLost")
+                        case .clientError:
+                            print("clientError")
+                        }
+                    }).disposed(by: strongSelf.disposeBag)
+            }
+        }
     }
 }
 
@@ -91,11 +125,12 @@ extension NewsListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: NewsCellStyle1.reuseIdentify()) as! NewsCellStyle1
+        if indexPath.row > viewModel.news.count - 1 {
+            return UITableViewCell()
+        }
         let news = viewModel.news[indexPath.row]
-//        cell.bindData(model: news)
         let cell = NewsCell.tableView(tableView, cellForRowAt: indexPath, model: news)
-        
+        cell.selectionStyle = .none
         return cell
     }
     

@@ -26,9 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 支持webp格式图片
         KingfisherManager.shared.defaultOptions = [.processor(WebPProcessor.default), .cacheSerializer(WebPSerializer.default)]
 
-        let vc = MainVC()
+        let vc = MainContainVC()
         let nav = UINavigationController(rootViewController: vc)
         self.window?.rootViewController = nav
+        
+        UIApplication.shared.statusBarStyle = .lightContent
+        
+        nav.navigationBar.setBackgroundImage(UIColor.createImageFromColor(color: UIColor(valueRGB: 0xd43d3c)), for: UIBarMetrics.default)
+        nav.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
 
         DBManager.share.createAllTable()
         print(dbPath)

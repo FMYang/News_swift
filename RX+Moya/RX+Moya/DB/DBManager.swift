@@ -19,7 +19,7 @@ let dbPath = NSHomeDirectory() + "/Documents/NewsDB/news.db"
 // 单例
 class DBManager {
 
-    static let dbQueue = DispatchQueue(label: "com.task.queue", attributes: .concurrent)
+    static let dbQueue = DispatchQueue(label: "com.news.queue")//, attributes: .concurrent)
 
     static let db = Database(withPath: dbPath)
 
@@ -38,8 +38,7 @@ extension DBManager {
             do {
                 try DBManager.db.run(transaction: {
                     try DBManager.db.create(table: TableName.channel.rawValue, of: Channel.self)
-//                    try DBManager.db.create(table: "SampleTable", of: Sample.self)
-//                    try DBManager.db.create(table: TableName.newsList.rawValue, of: News.self)
+                    try DBManager.db.create(table: TableName.newsList.rawValue, of: News.self)
                 })
             } catch {
                 print(error)

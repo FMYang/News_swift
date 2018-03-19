@@ -20,6 +20,8 @@ class NewsCellStyle3: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+//        leftImageView.width = (screenWidth-40)/3
+//        leftImageView.height = leftImageView.width * 75 / 110
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
